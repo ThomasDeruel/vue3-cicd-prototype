@@ -1,0 +1,27 @@
+name: run-test.yml
+on: [push]
+jobs:
+  # specify a job (to call on or multiple actions)
+  test:
+    # use ubuntu os
+    runs-on: ubuntu-latest
+    # the template includes a matrix strategy that builds 
+    # and tests your code with two Node.js versions: 
+    # 12.x and 14.x
+    # x -> matches the latest minor and patch release available for a version
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+    steps:
+      # Action for checking out a repo
+      # see: https://github.com/actions/checkout
+    - uses: actions/checkout@v2
+    - name: Use node ${{ matrix.node-version }}
+      # action to use node (easy mode)
+      # see: https://github.com/actions/setup-node/
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+      # test unit
+    - run: npm ci
+    - run: npm run test:unit
