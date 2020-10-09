@@ -43,4 +43,12 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@3.6.2
       with:
         BRANCH: main # The branch the action should deploy to.
-        FOLDER: dist # The folder the action should deploy.
+        FOLDER: build # The folder the action should deploy.
+  aftefact-readme:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/upload-artifact@v2
+        with:
+          name: readme
+          path: README.md
