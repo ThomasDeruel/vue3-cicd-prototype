@@ -39,8 +39,8 @@ jobs:
     - run: npm ci
     - run: npm run build
     - run: ls
-    - uses: actions/download-artifact@v2
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@3.6.2
       with:
-        name: build-node-v${{matrix.node-version}}
-        path: dist
-    - run: echo dist upload with node -v${{ matrix.node-version}}
+        BRANCH: main # The branch the action should deploy to.
+        FOLDER: build # The folder the action should deploy.
