@@ -39,5 +39,5 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: build-node-v${{matrix.node-version}}
-        path: /dist
+        path: ${{ github.workspace }}/artifact/
     - run: echo dist upload with node -v${{ matrix.node-version}}
