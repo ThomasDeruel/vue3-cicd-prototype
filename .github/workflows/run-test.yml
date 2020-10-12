@@ -16,7 +16,7 @@ jobs:
       # Action for checking out a repo
       # see: https://github.com/actions/checkout
     - uses: actions/checkout@v2
-    - name: Use node ${{ matrix.node-version }}
+    # - name: Use node ${{ matrix.node-version }}
       # action to use node (easy mode)
       # see: https://github.com/actions/setup-node/
     - uses: actions/setup-node@v1
