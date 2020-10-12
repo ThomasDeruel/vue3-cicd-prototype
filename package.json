@@ -73,10 +73,12 @@
     "transform": {
       "^.+\\.vue$": "vue-jest"
     },
-    "collectCoverage": true,
+    "collectCoverage": false,
     "collectCoverageFrom": [
+      "**/*.js",
       "**/*.vue",
-      "!**/node_modules/**"
+      "!**/node_modules/**",
+      "!**/dist/**"
     ]
   }
 }
